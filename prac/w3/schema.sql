@@ -2,7 +2,7 @@
 -- Schema for simple company database
 
 create table Employees (
-	tfn         char(11) primary key,
+	tfn         char(11) check (~ '[0-9]{3}-[0-9]{3}-[0-9]{3}') primary key ,
 	givenName   varchar(30) not null,
 	familyName  varchar(30) not null,
 	hoursPweek  float check(hoursPweek > 0)
@@ -20,15 +20,15 @@ create table DeptMissions (
 );
 
 create table WorksFor (
-	employee    char(11) UNIQUE not null,
+	employee    char(11) not null,
 	department  char(3) not null,
 	percentage  float
 );
 
--- constrain for employee and department mission
-alter table Employees ADD CONSTRAINT  manager_employee foreign key (manager) reference Employees (tfn);
-alter table DeptMissions ADD CONSTRAINT mission_department foreign key (department) reference Departments (id);
--- many to many reference 
-alter table WorksFor ADD CONSTRAINT works_employee foreign key (employee) reference Employees (tfn);
-alter table WorksFor ADD CONSTRAINT works_department foreign key (department) reference Departments (id);
 
+-- constrain for employee and department mission
+alter table Departments ADD CONSTRAINT  manager_employee foreign key (manager) references Employees (tfn);
+alter table DeptMissions ADD CONSTRAINT mission_department foreign key (department) references Departments (id);
+-- many to many reference 
+alter table WorksFor ADD CONSTRAINT works_employee foreign key (employee) references Employees (tfn);
+alter table WorksFor ADD CONSTRAINT works_department foreign key (department) references Departments (id);
