@@ -2,27 +2,29 @@
 -- Schema for simple company database
 
 create table Employees (
-	tfn         char(11) check (~ '[0-9]{3}-[0-9]{3}-[0-9]{3}') primary key ,
+	tfn         char(11) primary key ,
 	givenName   varchar(30) not null,
 	familyName  varchar(30) not null,
-	hoursPweek  float check(hoursPweek > 0)
+	hoursPweek  float check(hoursPweek > 0 and hoursPweek < 168),
+	CONSTRAINT tfn_style CHECK (tfn ~ '^[0-9]{3}-[0-9]{3}-[0-9]{3}$')
 );
 
 create table Departments (
-	id          char(3) primary key,
-	name        varchar(100),
+	id          char(3) primary key check (id ~ '^[0-9]{3}$'),
+	name        varchar(100) unique not null,
 	manager     char(11) not null
 );
 
 create table DeptMissions (
 	department  char(3) not null,
-	keyword     varchar(20)
+	keyword     varchar(20) not null
 );
 
 create table WorksFor (
 	employee    char(11) not null,
 	department  char(3) not null,
-	percentage  float
+	percentage  float,
+	constraint percentage_valid check (percentage > 0 and percentage <= 100)
 );
 
 
