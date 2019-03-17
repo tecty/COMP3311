@@ -1,0 +1,36 @@
+ taster |          beer          |          brewer          | rating 
+--------+------------------------+--------------------------+--------
+ John   | Rasputin               | North Coast Brewing      |      4
+ John   | 80/-                   | Calendonian Brewing      |      4
+ John   | Pale Ale               | Sierra Nevada            |      5
+ John   | Chimay Red             | Chimay                   |      3
+ John   | Victoria Bitter        | Carlton and United       |      1
+ John   | Empire                 | Carlton and United       |      3
+ John   | Crown Lager            | Carlton and United       |      2
+ Adam   | Victoria Bitter        | Carlton and United       |      1
+ Adam   | Old                    | Toohey's                 |      4
+ Adam   | New                    | Toohey's                 |      1
+ Jeff   | Rasputin               | North Coast Brewing      |      1
+ Jeff   | Burragorang Bock       | Scharer's Little Brewery |      3
+ Jeff   | Pale Ale               | Sierra Nevada            |      4
+ Sarah  | Burragorang Bock       | Scharer's Little Brewery |      4
+ Sarah  | Scharer's Lager        | Scharer's Little Brewery |      3
+ Sarah  | Victoria Bitter        | Carlton and United       |      1
+ Sarah  | Old                    | Toohey's                 |      3
+ Sarah  | New                    | Toohey's                 |      2
+ Sarah  | James Squire Amber Ale | Maltshovel Brewery       |      3
+ Sarah  | James Squire Pilsener  | Maltshovel Brewery       |      3
+ Raghu  | Old Tire               | New Glarus Brewing       |      5
+ Raghu  | Pale Ale               | Sierra Nevada            |      3
+ Raghu  | Rasputin               | North Coast Brewing      |      3
+ Ramez  | Bigfoot Barley Wine    | Sierra Nevada            |      3
+ Ramez  | Pale Ale               | Sierra Nevada            |      4
+ Hector | Pale Ale               | Sierra Nevada            |      4
+ Hector | Fosters                | Carlton and United       |      3
+ Geoff  | Empire                 | Carlton and United       |      3
+ Geoff  | James Squire Pilsener  | Maltshovel Brewery       |      4
+ Geoff  | Redback                | Matilda Bay Brewing      |      4
+ Peter  | XXXX                   | Castlemaine/Perkins      |      5
+ Rose   | Redback                | Matilda Bay Brewing      |      5
+(32 rows)
+

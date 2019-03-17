@@ -84,13 +84,47 @@ $$ language plpgsql
 
 
 -- BeerSummary function
+create type allratetype as (taster text, beer text,brewer text, rating int);
+
+create aggregate namelist(text)(
+	stype = text,
+	initcond = '',
+	sfunc = namePuls,
+	finalfunc  = removefirst
+);
+
+create or replace function removefirst(_str text) returns text 
+as $$
+begin
+	return substr(_str, 3,length(_str)-1);
+end;
+$$ language plpgsql;
+
+create or replace function namePuls(_list text, _name text) returns text 
+as $$
+begin
+	_list := _list || ' ,'||_name;
+	return _list;
+end;
+$$ language plpgsql;
+
+
 
 create or replace function BeerSummary() returns text
 as $$
 declare
-	... replace this by your definitions ...
+	ret text := '';
+	el allratetype;
 begin
-	... replace this by your code ...
+	-- ret := "";
+	for el in select namelist(taster) ,beer, brewer, cast(avg(rating) as decimal(2,1)) from allratings group by beer, brewer
+	loop
+		ret := ret || E'Beer:\t' || el.beer || E'\n';
+		ret := ret || E'Rating:\t' || el.rating || '.0' || E'\n';
+		ret := ret || E'Tasters:\t' || el.taster || E'\n';
+		ret := ret || E'\n';
+	end loop;
+	return ret;
 end;
 $$ language plpgsql;
 
