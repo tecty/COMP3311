@@ -1,0 +1,3 @@
+#!/bin/bash
+
+psql 'dbname=mydb host=localhost user=postgres password=apple123' $@
