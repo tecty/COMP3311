@@ -1,0 +1,27 @@
+#!/usr/bin/php
+<?php
+
+// include the common PHP code file
+require("a2.php");
+$db = dbConnect(DB_CONNECTION);
+
+$next_count = 0;
+
+function myDbNext($result){
+    global $next_count;
+    $next_count ++;
+    return dbNext($result);
+}
+
+$q1 = "select distinct student from Enrolments order by student";
+$q2 = "select count(*) from Enrolments where student = %s";
+$r1 = dbQuery($db, mkSQL($q1));
+while ($t1 = myDbNext($r1)) {
+    $s = $t1["student"];
+    $r2 = dbQuery($db, mkSQL($q2, $s));
+    while ($t2 = myDbNext($r2)) $m = $t2[0];
+    printf("%-10s %2d\n",$s,$m);
+}
+
+print("next has print ".$next_count."\n");
+?>

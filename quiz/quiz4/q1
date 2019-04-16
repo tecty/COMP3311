@@ -1,0 +1,31 @@
+#!/usr/bin/php
+<?php
+
+//
+// pg - print all PG and PG-13 movies of a given year
+//
+
+// include the common PHP code file
+require("a2.php");
+$db = dbConnect(DB_CONNECTION);
+
+
+
+
+// Get the return results
+$q = "select * from enrolments order by student";
+$r = dbQuery($db, mkSQL($q));
+$x = array();
+while ($t = dbNext($r)) {
+    $stu = $t["student"];
+    $mark = $t["mark"];
+    if (!isset($x[$stu]))
+        $x[$stu] = $mark;
+    elseif ($x[$stu] < $mark)
+        $x[$stu] = $mark;
+}
+foreach($x as $s => $m) {
+    printf("%-10s %2d\n",$s,$m);
+}
+
+?>
