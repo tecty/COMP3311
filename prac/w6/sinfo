@@ -1,4 +1,4 @@
-#!/srvr/cs3311psql/lib/php525/bin/php
+#!/usr/bin/php
 <?
 require("db.php");
 

@@ -1,0 +1,6 @@
+#!/bin/bash 
+echo 'drop database mydb; create database mydb;'| psql 'host=localhost user=postgres password=apple123' 
+
+echo "apply updates"
+./connect -f a2.db > /dev/null
+
