@@ -1,0 +1,33 @@
+#!/srvr/cs3311psql/lib/php525/bin/php
+<?
+require("db.php");
+
+if ($argc < 2) exit("Usage: sfind FamilyName\n");
+$name = $argv[1];
+
+$db = dbConnect("dbname=ass3");
+
+$qry = <<<xxSQLxx
+select p.unswid, p.title, p.name, p.email, p.gender, c.name as origin
+from   People p, Students s, Countries c
+where  p.family = %s and p.id = s.id and p.origin = c.id
+xxSQLxx;
+
+$res = dbQuery($db, mkSQL($qry,$name));
+if (dbNResults($res) == 0) exit("No student matching '$name'\n");
+
+while ($sinfo = dbNext($res))
+{
+	$output = array(
+		"SID"     => $sinfo["unswid"],
+		"Name"    => "$sinfo[title] $sinfo[name]",
+		"Email"   => $sinfo["email"],
+		"Gender"  => ($sinfo["gender"] == "m" ? "Male" : "Female"),
+		"Origin"  => $sinfo["origin"]
+	);
+
+	foreach ($output as $label => $value)
+		printf("%-10s: %s\n", $label, $value);
+	echo "\n";
+}
+?>
