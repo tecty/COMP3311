@@ -1,0 +1,15 @@
+a. 
+F = {A->BC, DE -> F, ADE-> G}
+
+b.
+Original {ABCDEFG}
+1. {ADEFG, ABC}
+2. {ADEG, ABC, DEF}
+
+We checked all the functional dependency is in the F+.
+Final result is  F+ ={ADEG, ABC, DEF}
+
+c.
+In the ADEG, we have each assignment result for a student with the data of student id, course code, assignment name and result.
+In ABC, we have each student's academic information as student id, student name and it's degree number
+In DEF, we have the maximun score for each assignment by course code, assignment name and the maximun score.

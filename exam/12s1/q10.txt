@@ -1,0 +1,20 @@
+a. 
+Display all the goal-count by each player in the database.
+
+b.
+1 call for getting all the players 
+500 calls for players of goals (one for each play)
+Hence, 501 calls in total .
+
+c.
+<?
+require(".../db.php");
+$db = dbConnect("dbname=exam");
+
+$sql = "select p.name, count(g.id) from players as p join goals as g on g.scoredBy = p.id group by p.name;";
+
+$r = dbQuery($db, mkSQL($sql))
+while ($t = dbNext($r)) {
+	printf("%s %d\n", $t[0], $t[1]);
+}
+?>

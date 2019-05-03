@@ -1,0 +1,18 @@
+a. 
+Res = Proj [eno, name] (
+        Sel[payRate > 20](Employees)
+    )
+
+b.
+Manager_ids = Proj[eno](Department)
+Res = Proj[name](
+        Manager_ids Join[Manager_ids.eno = Employees.eno]Employees
+    )
+
+c.
+Day_list = {day : {'mon','tue','wed','thu','fri','sat','sun'}}
+Worker_in_week = Proj[eno, day](
+        TimeSheets
+    )/ Day_list
+
+Res = Proj[name](Worker_in_week Join Employees)
