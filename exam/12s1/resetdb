@@ -1,0 +1,2 @@
+#!/bin/bash 
+cp footy.db.bak footy.db
