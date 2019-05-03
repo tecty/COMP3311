@@ -1,0 +1,42 @@
+ER-style 
+
+create table Employee (
+    id integer primary key,
+    name text not null,
+    position text not null,
+)
+
+create table Parttime (
+    e_id integer primary key,
+    fraction float,
+    foreign key (e_id) references Employee
+)
+
+create table Work_Hours(
+    e_id integer not null,
+    starting time not null, 
+    ending time not null, 
+    'date' date not null,
+    primary key (e_id, 'date')
+    foreign key (id) references Employee,
+)
+
+The total participation and disjoint are not preserved in the schema, 
+because we use the ER-sylte mapping. The constraint is check in the user level programme or develop a trigger. 
+
+
+
+create table Employee (
+    id integer primary key,
+    name text not null,
+    position text not null,
+    -- part time 
+    fraction float,
+    -- full time 
+    starting time , 
+    ending time , 
+    'date' date ,
+    check (large complex constraint),
+)
+
+The total participation and disjoint can be check by the not null of fraction or not null of starting, ending and date with these two cannot be both null at the same time. 
