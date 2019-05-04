@@ -10,7 +10,7 @@ Res = Proj[name](
     )
 
 c.
-Day_list = {day : {'mon','tue','wed','thu','fri','sat','sun'}}
+Day_list = Proj[day] TimeSheets
 Worker_in_week = Proj[eno, day](
         TimeSheets
     )/ Day_list

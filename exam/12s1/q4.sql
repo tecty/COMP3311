@@ -8,8 +8,8 @@ join Involves as i2 on
     i1.team <> i2.team 
 ;
 
-DROP VIEW IF EXISTS q4;
-CREATE VIEW q4(team1, team2, matchs) AS
+DROP VIEW IF EXISTS paly_pair;
+CREATE VIEW paly_pair(team1, team2, matchs) AS
 select t1.country, t2.country,count(*) 
 from team_pair as p 
 join teams as t1 on t1.id = p.team1 
@@ -17,4 +17,11 @@ join teams as t2 on t2.id = p.team2
 where t1.country < t2.country 
 GROUP BY t1.country, t2.country 
 ORDER BY t1.country, t2.country 
+;
+
+DROP VIEW IF EXISTS q4;
+CREATE VIEW q4(team1, team2, matchs) AS
+select p.team1, p.team2, p.matchs 
+from paly_pair as p
+where p.matchs = (select max(matchs) from paly_pair )
 ;

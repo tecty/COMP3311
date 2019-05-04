@@ -50,4 +50,14 @@ join matches as m
 join teams as t1 
     on t1.id = g.team1 
 join teams as t2 
-    on t2.id = g.team2 ;
+    on t2.id = g.team2 
+where t1.country < t2.country    
+;
+
+drop view if exists Q6_1;
+create view Q6_1
+as
+select m.city as location, m.playedOn as date,
+		ms.team1, ms.goals1, ms.team2, ms.goals2
+from   Matches m join MatchScores ms on (m.id = ms.match)
+;
