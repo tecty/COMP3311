@@ -1,0 +1,8 @@
+a.A
+b.
+{ABCDEF}
+{ACDEF,AB}
+{ADEF,AB,AC}
+{ADF,AB,AC,DE}
+
+c. No, because the relation D->E and E -> F is not in the schema 

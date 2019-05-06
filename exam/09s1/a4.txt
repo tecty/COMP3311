@@ -1,0 +1,11 @@
+a. 
+randCus = Select[suburb = 'Randwick'](Customer)
+validAcct = Select[balance > 1000000](Account)
+resultMap = (randCus Join[cno = customer] Depositor) join[account = ano] validAcct
+Result(cusName)= Proj[name]resultMap
+
+b.
+bnset = Proj[bno] Branches 
+accountDepSet = Accounts Join[account = ano and customer = cno] Depositor)
+needAcct = Proj[cno,bno](accountDepSet/bnset) 
+Result = Proj [cno, name](needAcct Join Customer)

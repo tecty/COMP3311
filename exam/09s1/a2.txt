@@ -1,0 +1,29 @@
+a.
+create table Person (
+    id integer primary key, 
+    name text not null,
+    constraint digit_limit (check id < 100000)
+)
+
+create table Staff (
+    id integer references Person(id) not null, 
+    salary float check salary > 0,
+)
+
+create table Student (
+    id integer references Person(id) not null,
+    degree text not null, 
+) 
+
+It's in the schema. 
+
+b.
+create table Person (
+    id integer primary key, 
+    name text not null,
+    constraint digit_limit check (id < 100000),
+    salary float check (salary > 0),
+    degree text not null, 
+) 
+
+It's in the schema. 

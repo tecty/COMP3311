@@ -1,0 +1,7 @@
+a. Print the id , student name, average marks and courses list for all the course he has took.
+
+b. 1 for getting all the students 
+10000 for the students' records.
+Hence there's 10001 calls 
+
+c. 1

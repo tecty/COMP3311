@@ -1,0 +1,11 @@
+a.
+Yes, it's equivilant to 
+T1:  R(X)  W(Y)  W(X)
+T2:                    R(Y)  W(X)      
+T3:                                R(Y)  W(X)  W(Y)
+
+b.
+yes it's equivilant to a's 
+
+c.
+It's time consuming to generate the valid serializable schedule.
