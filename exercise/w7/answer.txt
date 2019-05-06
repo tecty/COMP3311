@@ -1,0 +1,41 @@
+1. X-> R-X
+
+2. 
+A -> C B -> C 
+B -> C B -> A
+C -> A C -> B
+
+3.
+The relationship is one to one.
+Since A-> B we can get for every A value, there's only one B value.
+From another B -> A we can get for every B value, there's only one A value.
+So for each A has only one B, and vice versa.
+Hence the relationship is one to one relationship.
+
+4.
+a.
+Since A -> B 
+so A+ = {A, B}
+
+b.
+since A->B, B in ACEG+  
+since BC-> F, F in ACEG+
+Hence,
+ACEG += {A,B, C, E,F, G}
+
+c.
+Since BD -> EG. so EG in BD+ 
+Since BEG -> FA, so FA in BD+ 
+Since AD -> C so C in BD+ 
+All the entity is in the set, stop.
+Hence,
+BD+ = {A, B,C, D,E, F, G}
+
+3. 
+a. ACD, BCD, EDC
+
+b. 
+Yes, because the right hand side of functional dependency are all keys.
+
+c.
+No, because none of the left hand sides contains a key 
